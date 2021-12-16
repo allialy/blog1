@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme formArticles 'bootstrap_5_layout.html.twig' %}
+{% block title %}Créer un article{% endblock %}
+
+{% block body %}
+        <h1>Creation d'article</h1>
+        {{ form_start(formArticles) }}
+
+        {{ form_widget(formArticles) }}
+
+        <button type="submit" class="btn btn-success">Envoyer</button>
+        {{ form_end(formArticles) }}
+{% endblock %}

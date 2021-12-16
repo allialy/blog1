@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    {% if article is defined and article is not null %}
+               <h1>Mon article actuel</h1>
+<ul>
+    <li>Id: {{article.id}}</li>
+    <li>Nom: {{article.nom}}</li>
+    <li>Slug: {{article.slug}}</li>
+    <li>contenu: {{article.contenu}}</li>
+</ul>
+            {% endif %}
+   
+
+    {% if articles is defined %}
+
+        <h2>Mes articles</h2>
+
+        <ul>
+            {% for article in articles %}
+                
+                <li>
+                   <a href="{{ path('blogS', {'id': article.id}) }}">
+                                Mes articles {{ article.nom }}  
+                            </a>
+                </li>
+            {% endfor %}
+
+
+        </ul>
+    {% endif %}
+</div>
+{% endblock %}
